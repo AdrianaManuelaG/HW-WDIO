@@ -8,6 +8,7 @@ describe("Doctor's page" , () => {
     });
 
     it("Open modal window for adding a new doctor", async () => {
+        await $('[routerlink="/doctors"]').waitForDisplayed();
         await $('[routerlink="/doctors"]').click();
         await $('button.e-control ').click();
         await expect($('#dialog_757320498_0_dialog-content')).toBeDisplayed();
@@ -26,7 +27,6 @@ describe("Doctor's page" , () => {
         await expect($('#Specialist_8')).toBeDisplayed();
         await expect($('#Specialist_8').$('.name')).toHaveText("Dr. Jhon Doe");
         await expect($("#Specialist_8").$(".education")).toHaveText("OXFORD");
-        await browser.pause(5000);
     });
     it("Close the modal window for adding a new doctor", async () =>{
         await $('[routerlink="/doctors"]').click();
